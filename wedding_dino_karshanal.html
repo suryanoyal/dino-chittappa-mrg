@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dino & Karshanal — 18 June 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=Raleway:wght@200;300;400&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream: #f5f0e8;
+    --warm-white: #faf8f3;
+    --brown: #5c3d2e;
+    --brown-light: #8b6347;
+    --brown-dark: #3a2318;
+    --gold: #c9a96e;
+    --gold-light: #e8d5b0;
+    --text-muted: rgba(92, 61, 46, 0.6);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    background: var(--brown-dark);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom,
+        rgba(20,10,5,0.15) 0%,
+        rgba(20,10,5,0.05) 30%,
+        rgba(20,10,5,0.55) 70%,
+        rgba(20,10,5,0.92) 100%
+      );
+    z-index: 1;
+  }
+
+  /* Church illustration as SVG background */
+  .church-scene {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .church-scene img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 24px 7vh;
+    width: 100%;
+    max-width: 680px;
+  }
+
+  .monogram {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(56px, 12vw, 110px);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 18px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1.4s ease 0.3s forwards;
+  }
+
+  .monogram span {
+    color: var(--gold);
+  }
+
+  .hero-names {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(13px, 2.5vw, 17px);
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 1.4s ease 0.6s forwards;
+  }
+
+  .hero-divider {
+    width: 80px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 28px;
+    opacity: 0;
+    animation: fadeUp 1.4s ease 0.8s forwards;
+  }
+
+  .hero-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(16px, 3vw, 22px);
+    font-weight: 300;
+    color: var(--gold-light);
+    letter-spacing: 0.06em;
+    opacity: 0;
+    animation: fadeUp 1.4s ease 1s forwards;
+  }
+
+
+
+  /* ─── SECTION SHARED ─── */
+  section {
+    padding: 80px 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(22px, 4vw, 34px);
+    font-weight: 400;
+    color: var(--cream);
+    text-align: center;
+    margin-bottom: 12px;
+    letter-spacing: 0.06em;
+  }
+
+  .thin-rule {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 40px;
+  }
+
+  /* ─── INTRO ─── */
+  .intro-section {
+    background: linear-gradient(135deg, rgba(201,169,110,0.06) 0%, transparent 100%);
+    border-top: 1px solid rgba(201,169,110,0.2);
+    border-bottom: 1px solid rgba(201,169,110,0.2);
+    max-width: 100%;
+    padding: 90px 24px;
+  }
+
+  .intro-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .intro-quote {
+    font-style: italic;
+    font-size: clamp(18px, 3vw, 26px);
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--cream);
+    margin-bottom: 32px;
+  }
+
+  .intro-body {
+    font-size: clamp(14px, 2vw, 17px);
+    line-height: 2;
+    color: rgba(245,240,232,0.7);
+    font-weight: 300;
+  }
+
+  /* ─── CEREMONY ─── */
+  .details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 0 40px;
+    align-items: start;
+  }
+
+  .grid-divider {
+    background: rgba(201,169,110,0.3);
+    height: 100%;
+    min-height: 120px;
+  }
+
+  .detail-block {
+    text-align: center;
+    padding: 24px 0;
+  }
+
+  .detail-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .detail-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .detail-main {
+    font-size: clamp(18px, 3vw, 26px);
+    font-style: italic;
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+
+  .detail-sub {
+    font-size: 14px;
+    color: rgba(245,240,232,0.55);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .couple-photos {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 48px;
+    opacity: 0.7;
+  }
+
+  .couple-photo {
+    width: 220px;
+    height: 220px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid rgba(201,169,110,0.3);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .couple-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .couple-photo:hover {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 560px) {
+    .details-grid {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .grid-divider {
+      width: 60px;
+      height: 1px;
+      min-height: unset;
+      margin: 8px auto;
+    }
+  }
+
+  /* ─── TIMELINE ─── */
+  .timeline {
+    position: relative;
+    padding: 0 0 0 32px;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--gold) 15%, var(--gold) 85%, transparent);
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 44px;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -38px;
+    top: 6px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,169,110,0.2);
+  }
+
+  .timeline-time {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .timeline-event {
+    font-size: clamp(17px, 2.5vw, 21px);
+    font-style: italic;
+    color: var(--cream);
+    margin-bottom: 4px;
+  }
+
+  .timeline-desc {
+    font-size: 13px;
+    color: rgba(245,240,232,0.5);
+    font-weight: 300;
+  }
+
+  /* ─── CTA BUTTONS ─── */
+  .cta-group {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 48px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    outline: none;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--brown-dark);
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid rgba(201,169,110,0.5);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  /* ─── COUNTDOWN ─── */
+  .countdown-wrap {
+    background: rgba(201,169,110,0.06);
+    border: 1px solid rgba(201,169,110,0.15);
+    padding: 48px 24px;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .countdown-grid {
+    display: flex;
+    justify-content: center;
+    gap: clamp(20px, 5vw, 60px);
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+
+  .countdown-item {
+    text-align: center;
+    min-width: 72px;
+  }
+
+  .countdown-num {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(36px, 8vw, 64px);
+    font-weight: 400;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+  }
+
+  .countdown-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+    margin-top: 8px;
+    display: block;
+  }
+
+  .countdown-sep {
+    font-size: clamp(24px, 5vw, 48px);
+    color: rgba(201,169,110,0.3);
+    align-self: flex-start;
+    padding-top: 4px;
+  }
+
+  /* ─── MAP CTA ─── */
+  .location-card {
+    border: 1px solid rgba(201,169,110,0.2);
+    padding: 48px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .location-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,169,110,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid rgba(201,169,110,0.2);
+    padding: 48px 24px;
+    text-align: center;
+    background: rgba(0,0,0,0.3);
+  }
+
+  .footer-mono {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+
+  .footer-text {
+    font-size: 13px;
+    color: rgba(245,240,232,0.35);
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 480px) {
+    section { padding: 56px 20px; }
+    .cta-group { flex-direction: column; align-items: center; }
+    .btn { width: 100%; max-width: 260px; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="church-scene">
+    <!-- Church background image -->
+    <img src="church.png" alt="Church" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+
+  <div class="hero-bg"></div>
+
+  <div class="hero-content">
+    <div class="monogram">D<span>&</span>K</div>
+    <div class="hero-names">Dino &nbsp;·&nbsp; Karshanal</div>
+    <div class="hero-divider"></div>
+    <div class="hero-date">The eighteenth of June, Two thousand twenty-six</div>
+  </div>
+
+
+</div>
+
+
+<!-- ═══ INTRO ═══ -->
+<div class="intro-section">
+  <div class="intro-inner reveal">
+    <div class="section-label">A Love Story</div>
+    <p class="intro-quote">"Two souls, one path — bound by faith, love, and forever."</p>
+    <p class="intro-body">
+      Together with their families, Dino and Karshanal joyfully invite you<br>
+      to witness and celebrate the beginning of their new life together.
+    </p>
+  </div>
+</div>
+
+
+<!-- ═══ CEREMONY DETAILS ═══ -->
+<section class="reveal">
+  <div class="section-label">The Celebration</div>
+  <h2 class="section-title">Ceremony Details</h2>
+  <div class="thin-rule"></div>
+
+  <div class="couple-photos">
+    <div class="couple-photo">
+      <img src="tino chittapa mrg.png" alt="Dino & Karshanal">
+    </div>
+  </div>
+
+  <div class="details-grid">
+    <div class="detail-block">
+      <span class="detail-label">Date</span>
+      <p class="detail-main">18 June 2026</p>
+      <p class="detail-sub">Thursday</p>
+    </div>
+    <div class="grid-divider"></div>
+    <div class="detail-block">
+      <span class="detail-label">Time</span>
+      <p class="detail-main">10:00 AM</p>
+      <p class="detail-sub">Ceremony begins promptly<br>Reception to follow</p>
+    </div>
+  </div>
+
+  <div class="cta-group">
+    <a href="https://maps.app.goo.gl/gjN3VQkjpjd1Mmge8" class="btn btn-primary" target="_blank">
+      ↗ &nbsp; View Location
+    </a>
+    <a href="/dino_karshanal_wedding.ics" class="btn btn-outline" download>
+      ↓ &nbsp; Save to Calendar
+    </a>
+  </div>
+
+  <div style="margin-top: 60px; padding-top: 60px; border-top: 1px solid rgba(201,169,110,0.2);">
+    <h3 class="section-title" style="font-size: 24px; margin-bottom: 20px;">Reception</h3>
+    <div class="details-grid">
+      <div class="detail-block">
+        <span class="detail-label">Date</span>
+        <p class="detail-main">17 June 2026</p>
+        <p class="detail-sub">Wednesday Evening</p>
+      </div>
+      <div class="grid-divider"></div>
+      <div class="detail-block">
+        <span class="detail-label">Venue</span>
+        <p class="detail-main">Join Us</p>
+        <p class="detail-sub">Evening celebration</p>
+      </div>
+    </div>
+
+    <div class="cta-group">
+      <a href="https://share.google/6uhLL9Z66k7CfkDZq" class="btn btn-primary" target="_blank">
+        ↗ &nbsp; Venue
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ COUNTDOWN ═══ -->
+<div class="countdown-wrap">
+  <div class="section-label">Counting the Days</div>
+  <h2 class="section-title" style="margin-bottom:0;">Until We Say &ldquo;I Do&rdquo;</h2>
+  <div class="countdown-grid" id="countdown">
+    <div class="countdown-item">
+      <span class="countdown-num" id="cd-days">—</span>
+      <span class="countdown-label">Days</span>
+    </div>
+    <span class="countdown-sep">:</span>
+    <div class="countdown-item">
+      <span class="countdown-num" id="cd-hours">—</span>
+      <span class="countdown-label">Hours</span>
+    </div>
+    <span class="countdown-sep">:</span>
+    <div class="countdown-item">
+      <span class="countdown-num" id="cd-mins">—</span>
+      <span class="countdown-label">Minutes</span>
+    </div>
+    <span class="countdown-sep">:</span>
+    <div class="countdown-item">
+      <span class="countdown-num" id="cd-secs">—</span>
+      <span class="countdown-label">Seconds</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══ ORDER OF DAY ═══ -->
+<section class="reveal">
+  <div class="section-label">Order of the Day</div>
+  <h2 class="section-title">Schedule</h2>
+  <div class="thin-rule"></div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-time">09 : 30 AM</div>
+      <div class="timeline-event">Guests Arrive</div>
+      <div class="timeline-desc">Doors open — ushers will guide you to your seats</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">10 : 00 AM</div>
+      <div class="timeline-event">Holy Matrimony</div>
+      <div class="timeline-desc">Church ceremony begins</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">12 : 00 PM</div>
+      <div class="timeline-event">Blessing & Photographs</div>
+      <div class="timeline-desc">Family & group portraits in the church grounds</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-time">01 : 30 PM</div>
+      <div class="timeline-event">Reception</div>
+      <div class="timeline-desc">Cocktails, dinner, and dancing to follow</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ LOCATION ═══ -->
+<section class="reveal" style="padding-top:0;">
+  <div class="location-card">
+    <div class="section-label">Venue</div>
+    <h2 class="section-title">The Church</h2>
+    <div class="thin-rule"></div>
+    <p style="font-style:italic; font-size:clamp(16px,2.5vw,20px); color:rgba(245,240,232,0.75); margin-bottom:32px; font-weight:300; line-height:1.8;">
+      Scan the QR code for directions,<br>or tap the button below to open in Maps.
+    </p>
+    <!-- QR placeholder -->
+    <div style="width:100px; height:100px; border:1px solid rgba(201,169,110,0.4); margin:0 auto 32px; display:flex; align-items:center; justify-content:center;">
+      <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="30" height="30" rx="3" stroke="#c9a96e" stroke-width="2" fill="none"/>
+        <rect x="8" y="8" width="18" height="18" rx="1" fill="#c9a96e" opacity="0.6"/>
+        <rect x="48" y="2" width="30" height="30" rx="3" stroke="#c9a96e" stroke-width="2" fill="none"/>
+        <rect x="54" y="8" width="18" height="18" rx="1" fill="#c9a96e" opacity="0.6"/>
+        <rect x="2" y="48" width="30" height="30" rx="3" stroke="#c9a96e" stroke-width="2" fill="none"/>
+        <rect x="8" y="54" width="18" height="18" rx="1" fill="#c9a96e" opacity="0.6"/>
+        <g fill="#c9a96e" opacity="0.5">
+          <rect x="48" y="48" width="8" height="8"/>
+          <rect x="60" y="48" width="8" height="8"/>
+          <rect x="48" y="60" width="8" height="8"/>
+          <rect x="60" y="60" width="8" height="20"/>
+          <rect x="70" y="48" width="10" height="8"/>
+        </g>
+      </svg>
+    </div>
+    <a href="https://maps.app.goo.gl/gjN3VQkjpjd1Mmge8" class="btn btn-outline" target="_blank">
+      ↗ &nbsp; Open in Google Maps
+    </a>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-mono">D &amp; K</div>
+  <p class="footer-text">18 · 06 · 2026</p>
+  <p style="margin-top:24px; font-size:12px; color:rgba(245,240,232,0.2); font-family:'Raleway',sans-serif; letter-spacing:0.15em;">
+    With love &amp; gratitude
+  </p>
+</footer>
+
+
+<script>
+  // Countdown
+  function tick() {
+    const target = new Date('2026-06-18T10:00:00');
+    const now = new Date();
+    const diff = target - now;
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '00';
+      document.getElementById('cd-hours').textContent = '00';
+      document.getElementById('cd-mins').textContent = '00';
+      document.getElementById('cd-secs').textContent = '00';
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent  = String(d).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(s).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
