@@ -219,6 +219,81 @@
     min-height: 120px;
   }
 
+  .profile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  .profile-card {
+    background: rgba(92, 61, 46, 0.12);
+    border: 1px solid rgba(201, 169, 110, 0.18);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .profile-avatar {
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid rgba(201, 169, 110, 0.18);
+    background: rgba(245, 240, 232, 0.06);
+  }
+
+  .profile-avatar img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .profile-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .profile-heading {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(20px, 3vw, 24px);
+    color: var(--cream);
+    margin-bottom: 16px;
+  }
+
+  .profile-degree {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(14px, 2vw, 16px);
+    font-weight: 400;
+    color: var(--gold);
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+  }
+
+  .profile-text {
+    font-size: clamp(14px, 2vw, 16px);
+    line-height: 1.9;
+    color: rgba(245, 240, 232, 0.78);
+    font-weight: 300;
+  }
+
+  @media (max-width: 720px) {
+    .profile-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   .detail-block {
     text-align: center;
     padding: 24px 0;
@@ -547,6 +622,38 @@
     </p>
   </div>
 </div>
+
+
+<!-- ═══ MEET THE COUPLE ═══ -->
+<section class="reveal">
+  <div class="section-label">Meet the Couple</div>
+  <h2 class="section-title">Meet the Bride & Groom</h2>
+  <div class="thin-rule"></div>
+  <div class="profile-grid">
+    <div class="profile-card">
+      <div class="profile-avatar">
+        <img src="groom.png" alt="Joseph Dino">
+      </div>
+      <div>
+        <div class="profile-title">Meet the Groom</div>
+        <div class="profile-heading">Joseph Dino</div>
+        <div class="profile-degree">MBA in Logistics & Supply Chain Management</div>
+      </div>
+      <p class="profile-text">A passionate and enthusiastic professional in Shipping & Logistics, Joseph serves as a Sea Export Operations Executive at Hellmann Worldwide Logistics LLC, Dubai. Gentle in spirit and steadfast in faith, he values love, integrity, and meaningful relationships. He finds joy in traveling, music, and helping others. With a romantic heart and trust in God’s grace, he looks forward to a blessed journey of love, laughter, and lifelong companionship with his beloved.</p>
+    </div>
+    <div class="profile-card">
+      <div class="profile-avatar">
+        <img src="bride.png" alt="Karshanal">
+      </div>
+      <div>
+        <div class="profile-title">Meet the Bride</div>
+        <div class="profile-heading">Dr. Karshanal</div>
+        <div class="profile-degree">PhD in Entomology</div>
+      </div>
+      <p class="profile-text">A passionate Scientist in Entomology at the Indian Council of Agricultural Research, Karshanal is a graceful and kind-hearted soul. Strong yet gentle, and ambitious yet humble, she walks in unwavering faith in God’s plan. She cherishes life’s simple joys and carries warmth wherever she goes. With a heart full of dreams and grace, she looks forward to a beautiful journey of love, laughter, and lifelong togetherness with her beloved.</p>
+    </div>
+  </div>
+</section>
 
 
 <!-- ═══ CEREMONY DETAILS ═══ -->
